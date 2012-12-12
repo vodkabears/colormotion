@@ -1,0 +1,184 @@
+/*Common definitions(begin)*/
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    font-size: 0.625em;
+    font-family: Verdana, Geneva, DejaVu Sans, Sans-serif;
+}
+
+a{
+    color: #000;
+}
+
+a img{
+    border: none;
+}
+/*Common definitions(end)*/
+
+/*Github ribbon(begin)*/
+.github_ribbon{
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+    z-index: 1000;
+}
+/*Github ribbon(end)*/
+
+/*Webcam video(begin)*/
+.webcam{
+    display: none;
+}
+/*Webcam video(end)*/
+
+/*Canvas background(begin)*/
+.canvas_bg{
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background: #b4b4b4;
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -ms-filter: blur(10px);
+    -o-filter: blur(10px);
+    filter: blur(10px);
+}
+/*Canvas background(end)*/
+
+/*Central block(begin)*/
+.central{
+    position: absolute;
+    left: 50%;
+    top: 35%;
+
+    width: 100em;
+    margin-left: -50em;
+}
+/*Central block(end)*/
+
+/*Colored title(begin)*/
+.app_title{
+    font-size: 12em;
+    font-style: italic;
+
+    margin: 0 0 0.1em 0;
+
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -ms-filter: blur(3px);
+    -o-filter: blur(3px);
+    filter: blur(3px);
+    color: #ff0000;
+}
+/*Colored title(end)*/
+
+/*Rounded button(begin)*/
+.round_button{
+    font-family: Verdana, Geneva, DejaVu Sans, Sans-serif;
+
+    width: 10em;
+    height: 10em;
+
+    border-radius: 5em;
+    border: none;
+
+    cursor: pointer;
+
+    color: #f0f0f0;
+    background: #646464;
+    background: -moz-radial-gradient(center, ellipse cover, #646464 0%, #343434 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, #646464 0%,#343434 100%);
+    background: -o-radial-gradient(center, ellipse cover, #646464 0%,#343434 100%);
+    background: radial-gradient(ellipse at center, #646464 0%,#343434 100%);
+    box-shadow: 0 0 0.8em rgba(0, 0, 0, 0.75);
+}
+
+    .round_button span{
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+.round_button:hover{
+    box-shadow: 0 0 0.8em rgba(0, 0, 0, 0.5);
+    background: -moz-radial-gradient(center, ellipse cover, #545454 0%, #343434 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, #545454 0%,#343434 100%);
+    background: -o-radial-gradient(center, ellipse cover, #545454 0%,#343434 100%);
+    background: radial-gradient(ellipse at center, #545454 0%,#343434 100%);
+}
+
+.round_button:active{
+    box-shadow: 0 0 0.8em rgba(0, 0, 0, 0.25);
+    background: -moz-radial-gradient(center, ellipse cover, #444444 0%, #343434 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, #444444 0%,#343434 100%);
+    background: -o-radial-gradient(center, ellipse cover, #444444 0%,#343434 100%);
+    background: radial-gradient(ellipse at center, #444444 0%,#343434 100%);
+}
+
+/*Rounded button(end)*/
+
+/*Section(begin)*/
+.section{
+    display: none;
+
+    text-align: center;
+}
+
+    .section-text{
+        font-size: 1.4em;
+        font-weight: bold;
+    }
+/*Section(end)*/
+
+/*Addition information(begin)*/
+.add_info{
+    font-size: 1.4em;
+
+    position: absolute;
+
+    bottom: 1.3em;
+    left: 1.8em;
+    z-index: 1000;
+}
+/*Addition information(end)*/
+
+/*Social block(begin)*/
+.social{
+    position: absolute;
+    bottom: 1.3em;
+    right: 1.8em;
+
+    display: inline-block;
+}
+
+    .social-button{
+        margin-left: 0.6em;
+
+        text-decoration: none;
+        text-align: center;
+    }
+
+        .social-button img{
+            width: 25px;
+
+            -webkit-transition: all 0.3s ease-out;
+            -moz-transition: all 0.3s ease-out;
+            -o-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+        }
+
+    .social-button:first-child{
+        margin-left: 0;
+    }
+
+    .social-button:hover{}
+
+        .social-button:hover img{
+            width: 30px;
+        }
+/*Social block(end)*/

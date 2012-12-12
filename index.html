@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Colormotion</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script type="text/javascript" src="js/html5shiv.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/MotionDetector.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/Check.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/App.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        var init = function(){
+            if( Check.canvas()&&
+                Check.filter() &&
+                Check.getUserMedia()){
+                new App();
+            } else {
+                document.getElementById('notSupportedSection').style.display = 'block';
+            }
+        };
+
+        if(document.addEventListener){
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            window.onload = init;
+        }
+    </script>
+</head>
+<body>
+<a target="_blank" href="https://github.com/VodkaBears">
+    <img class="github_ribbon" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"
+         alt="Fork me on GitHub">
+</a>
+
+<video autoplay="true" class="webcam" id="webcam" width="800" height="600"></video>
+<canvas class="canvas_bg" id="blended"></canvas>
+
+<div class="central">
+    <section class="section" id="startSection">
+        <h1 class="app_title" id="appTitle">Colormotion</h1>
+        <button class="round_button" id="startButton"><span>Start</span></button>
+    </section>
+    <section class="section" id="notSupportedSection">
+        <img class="section-img" src="i/chrome.png" alt="Google Chrome" /><br />
+        <span class="section-text">
+            Your browser doesn’t support some features yet,<br />
+            please try it with <a href="https://www.google.com/chrome" title="Download Google Chrome" target="_blank">Google Chrome</a>
+        </span>
+    </section>
+    <section class="section" style="display: none;" id="webcamUnreadySection">
+        <img class="section-img" src="i/webcam.png" alt="Webcam" /><br />
+        <span class="section-text">
+            Something wrong with your webcam.<br />
+            Make sure it’s connected.
+        </span>
+    </section>
+</div>
+
+<div class="add_info">Made with <a target="_blank" title="Motion detection library" href="">MotionDetector.js</a></div>
+
+<div class="addthis_toolbox addthis_default_style social">
+    <a class="social-button addthis_button_facebook">
+        <img src="i/fb.png" alt="facebook"/>
+    </a>
+    <a class="social-button addthis_button_twitter">
+        <img src="i/tt.png" alt="twitter"/>
+    </a>
+    <a class="social-button addthis_button_google_plusone_share">
+        <img src="i/g+.png" alt="google+"/>
+    </a>
+    <a class="social-button addthis_button_compact">
+        <img src="i/more.png" alt="+"/>
+    </a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5061e6bb0b77747d"></script>
+</body>
+</html>
