@@ -1,4 +1,4 @@
 colormotion
 ===========
 
-Awesome motion detection with experimental HTML5 getUserMedia function.
+Nice looking motion detection with experimental HTML5 getUserMedia function.
