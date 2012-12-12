@@ -1,12 +1,10 @@
 <!DOCTYPE HTML>
-<html xmlns:og="http://ogp.me/ns#"
-      xmlns:fb="https://www.facebook.com/2008/fbml">
+<html prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="utf-8"/>
-    <meta name="description" content="HTML5 experiment" />
     <meta property="og:title" content="Colormotion" />
     <meta property="og:description" content="HTML5 experiment" />
-    <meta property="og:image" content="i/soc_img.png"/>
+    <meta property="og:image" content="http://vodkabears.github.com/colormotion/i/soc_img.png" />
     <title>Colormotion</title>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="image_src" href="i/soc_img.png" />
@@ -15,7 +13,7 @@
     <script type="text/javascript" src="js/Check.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/App.js" charset="utf-8"></script>
     <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5061e6bb0b77747d"></script>
-    <script type="text/javascript" charset="utf-8">
+    <script type="text/javascript">
         var addthis_config = {
             data_track_clickback: false
         };
@@ -43,7 +41,7 @@
          alt="Fork me on GitHub">
 </a>
 
-<video autoplay="true" class="webcam" id="webcam" width="800" height="600"></video>
+<video class="webcam" id="webcam" width="800" height="600" autoplay></video>
 <canvas class="canvas_bg" id="blended"></canvas>
 
 <div class="central">
