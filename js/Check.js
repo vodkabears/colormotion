@@ -8,9 +8,6 @@ var Check = {
 
     filter: function(){
         return ('WebkitFilter' in document.body.style
-            || 'MozFilter' in document.body.style
-            || 'MSFilter' in document.body.style
-            || 'OFilter' in document.body.style
             || 'filter' in document.body.style);
     },
 
