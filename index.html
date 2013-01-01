@@ -4,6 +4,8 @@
     <meta charset="utf-8"/>
     <meta name="description" content="HTML5 experiment"/>
     <title>Colormotion</title>
+    <link href='http://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="image_src" href="i/soc_img.png" />
     <script type="text/javascript" src="js/html5shiv.js" charset="utf-8"></script>
@@ -15,11 +17,17 @@
         var addthis_config = {
             data_track_clickback: false
         };
-
+		
+		 var addthis_share = {
+			title: "Colormotion",
+			description: "HTML5 experiment"
+		};
+		
         var init = function(){
             if( Check.canvas()&&
                 Check.filter() &&
-                Check.getUserMedia()){
+                Check.getUserMedia() &&
+                Check.browser()){
                 new App();
             } else {
                 document.getElementById('notSupportedSection').style.display = 'block';
@@ -44,7 +52,7 @@
 
 <div class="central">
     <section class="section" id="startSection">
-        <h1 class="app_title" id="appTitle">Colormotion</h1>
+        <h1 class="app_title" id="appTitle"><span>Colormotion</span></h1>
         <button class="round_button" id="startButton"><span>Start</span></button>
     </section>
     <section class="section" id="notSupportedSection">
@@ -63,7 +71,11 @@
     </section>
 </div>
 
-<div class="add_info">Made with <a target="_blank" title="Motion detection library" href="">MotionDetector.js</a></div>
+<div class="add_info">
+    <span>
+        Made with <a target="_blank" title="Motion detection library" href="">MotionDetector.js</a>
+    </span>
+</div>
 
 <div class="addthis_toolbox addthis_default_style social">
     <a class="social-button addthis_button_facebook">
@@ -75,7 +87,7 @@
     <a class="social-button addthis_button_google_plusone_share">
         <img src="i/g+.png" alt="google+"/>
     </a>
-    <a class="social-button addthis_button_compact">
+    <a class="social-button addthis_button_expanded">
         <img src="i/more.png" alt="+"/>
     </a>
 </div>

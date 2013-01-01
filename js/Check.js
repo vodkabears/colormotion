@@ -13,5 +13,9 @@ var Check = {
 
     canvas: function(){
         return !!window.HTMLCanvasElement;
+    },
+
+    browser: function(){
+        return navigator.appName === 'Netscape';
     }
 };

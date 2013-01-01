@@ -2,16 +2,20 @@
 html, body{
     width: 100%;
     height: 100%;
-    margin: 0;
+    margin: 0;	
 }
 
 body{
     font-size: 0.625em;
-    font-family: Verdana, Geneva, DejaVu Sans, Sans-serif;
+    font-family: 'PT Sans', sans-serif;
 }
 
 a{
     color: #000;
+}
+
+a:hover{
+    text-decoration: none;
 }
 
 a img{
@@ -55,7 +59,7 @@ a img{
 .central{
     position: absolute;
     left: 50%;
-    top: 35%;
+    top: 30%;
 
     width: 100em;
     margin-left: -50em;
@@ -64,8 +68,8 @@ a img{
 
 /*Colored title(begin)*/
 .app_title{
-    font-size: 12em;
-    font-style: italic;
+    font-family: 'Finger Paint', cursive;
+    font-size: 1em;
 
     margin: 0 0 0.1em 0;
 
@@ -76,16 +80,21 @@ a img{
     filter: blur(3px);
     color: #ff0000;
 }
+
+    .app_title span{
+        font-size: 14em;
+    }
 /*Colored title(end)*/
 
 /*Rounded button(begin)*/
 .round_button{
-    font-family: Verdana, Geneva, DejaVu Sans, Sans-serif;
+    font-size: 1em;
+    font-family: 'Finger Paint', cursive;
 
-    width: 10em;
-    height: 10em;
+    width: 13em;
+    height: 13em;
 
-    border-radius: 5em;
+    border-radius: 7.5em;
     border: none;
 
     cursor: pointer;
@@ -100,7 +109,7 @@ a img{
 }
 
     .round_button span{
-        font-size: 2em;
+        font-size: 3em;
         font-weight: bold;
     }
 
@@ -130,20 +139,22 @@ a img{
 }
 
     .section-text{
-        font-size: 1.4em;
+        font-size: 1.6em;
         font-weight: bold;
     }
 /*Section(end)*/
 
 /*Addition information(begin)*/
 .add_info{
-    font-size: 1.4em;
-
     position: absolute;
 
     bottom: 1.3em;
     left: 1.8em;
     z-index: 1000;
+}
+
+.add_info span{
+    font-size: 1.4em;
 }
 /*Addition information(end)*/
 
@@ -151,16 +162,13 @@ a img{
 .social{
     position: absolute;
     bottom: 1.3em;
-    right: 1.8em;
-
-    display: inline-block;
+    right: 1.8em;	
 }
 
     .social-button{
         margin-left: 0.6em;
 
         text-decoration: none;
-        text-align: center;
     }
 
         .social-button img{
