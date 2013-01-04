@@ -31,18 +31,18 @@
     .central{
         top: 5%;
     }
-}
-
-@media only screen and (max-height:240px){
-    .central{
-        top: 3%;
-    }
-
-    .add_info{
+	
+	.add_info{
         display: none;
     }
 
     .social{
         display: none;
+    }
+}
+
+@media only screen and (max-height:240px){
+    .central{
+        top: 1%;
     }
 }
