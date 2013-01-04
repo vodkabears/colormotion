@@ -45,4 +45,8 @@
     .central{
         top: 1%;
     }
+	
+	.section-text{
+		font-size: 1.4em;
+	}
 }
