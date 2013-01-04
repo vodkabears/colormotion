@@ -1,0 +1,48 @@
+@media only screen and (max-width:360px){
+    .add_info{
+        left: 0.5em;
+        bottom: 1.1em;
+    }
+
+    .social{
+        right: 0.5em;
+        bottom: 0.5em;
+    }
+}
+
+@media only screen and (max-width:320px){
+    .add_info{
+        display: none;
+    }
+
+    .social{
+        display: none;
+    }
+}
+
+
+@media only screen and (max-height:480px){
+    .central{
+        top: 20%;
+    }
+}
+
+@media only screen and (max-height:320px){
+    .central{
+        top: 10%;
+    }
+}
+
+@media only screen and (max-height:240px){
+    .central{
+        top: 3%;
+    }
+
+    .add_info{
+        display: none;
+    }
+
+    .social{
+        display: none;
+    }
+}

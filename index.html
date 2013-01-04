@@ -2,47 +2,23 @@
 <html>
 <head>
     <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="HTML5 experiment"/>
     <title>Colormotion</title>
     <link href='http://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/media-queries.css"/>
     <link rel="image_src" href="i/soc_img.png" />
     <script type="text/javascript" src="js/html5shiv.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/MotionDetector.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/Check.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/App.js" charset="utf-8"></script>
     <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5061e6bb0b77747d"></script>
-    <script type="text/javascript">
-        var addthis_config = {
-            data_track_clickback: false
-        };
-		
-		 var addthis_share = {
-			title: "Colormotion",
-			description: "HTML5 experiment"
-		};
-		
-        var init = function(){
-            if( Check.canvas()&&
-                Check.filter() &&
-                Check.getUserMedia() &&
-                Check.browser()){
-                new App();
-            } else {
-                document.getElementById('notSupportedSection').style.display = 'block';
-            }
-        };
-
-        if(document.addEventListener){
-            document.addEventListener('DOMContentLoaded', init);
-        } else {
-            window.onload = init;
-        }
-    </script>
+    <script type="text/javascript" src="js/init.js" charset="utf-8"></script>
 </head>
 <body>
-<a target="_blank" href="https://github.com/VodkaBears">
+<a title="How about to fork?" target="_blank" href="https://github.com/VodkaBears/colormotion">
     <img class="github_ribbon" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"
          alt="Fork me on GitHub">
 </a>
@@ -62,7 +38,7 @@
             please try it with <a href="https://www.google.com/chrome" title="Download Google Chrome" target="_blank">Google Chrome</a>
         </span>
     </section>
-    <section class="section" style="display: none;" id="webcamUnreadySection">
+    <section class="section" id="webcamUnreadySection">
         <img class="section-img" src="i/webcam.png" alt="Webcam" /><br />
         <span class="section-text">
             Something wrong with your webcam.<br />
@@ -73,7 +49,7 @@
 
 <div class="add_info">
     <span>
-        Made with <a target="_blank" title="Motion detection library" href="">MotionDetector.js</a>
+        Made with <a target="_blank" title="Motion detection library" href="https://github.com/VodkaBears/MotionDetector.js">MotionDetector.js</a>
     </span>
 </div>
 

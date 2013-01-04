@@ -8,18 +8,20 @@ html, body{
 body{
     font-size: 0.625em;
     font-family: 'PT Sans', sans-serif;
+
+    background: #b4b4b4;
 }
 
 a{
     color: #000;
 }
 
+    a img{
+        border: none;
+    }
+
 a:hover{
     text-decoration: none;
-}
-
-a img{
-    border: none;
 }
 /*Common definitions(end)*/
 
@@ -58,11 +60,9 @@ a img{
 /*Central block(begin)*/
 .central{
     position: absolute;
-    left: 50%;
     top: 30%;
 
-    width: 100em;
-    margin-left: -50em;
+    width: 100%;
 }
 /*Central block(end)*/
 
@@ -148,7 +148,7 @@ a img{
 .add_info{
     position: absolute;
 
-    bottom: 1.3em;
+    bottom: 1.9em;
     left: 1.8em;
     z-index: 1000;
 }
@@ -172,7 +172,7 @@ a img{
     }
 
         .social-button img{
-            width: 25px;
+            width: 2.5em;
 
             -webkit-transition: all 0.3s ease-out;
             -moz-transition: all 0.3s ease-out;
@@ -187,6 +187,6 @@ a img{
     .social-button:hover{}
 
         .social-button:hover img{
-            width: 30px;
+            width: 3em;
         }
 /*Social block(end)*/
