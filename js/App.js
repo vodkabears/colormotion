@@ -114,7 +114,7 @@ function App() {
             startSection.style.display = 'none';
 
             if (navigator.getUserMedia) {
-                navigator.getUserMedia({audio: true, video: true}, function (stream) {
+                navigator.getUserMedia({video: true}, function (stream) {
                     video.src = stream;
                     mdInit();
                     isStarted = true;
@@ -122,7 +122,7 @@ function App() {
                     webcamUnreadySection.style.display = 'block';
                 });
             } else if (navigator.webkitGetUserMedia) {
-                navigator.webkitGetUserMedia({audio: true, video: true}, function (stream) {
+                navigator.webkitGetUserMedia({video: true}, function (stream) {
                     video.src = window.webkitURL.createObjectURL(stream);
                     mdInit();
                     isStarted = true;
