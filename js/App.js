@@ -69,7 +69,7 @@ function App() {
         //create new MotionDetector object
         md = new MotionDetector(video, output);
 
-        //Set handler of difference in pixel.
+        //Set handler of a difference in a pixel.
         md.onDifference = function(ctx, e){
             if(Math.random() > 0.96){
                 ctx.fillStyle = 'rgb(' + transitionColor.color[0] + ', ' + transitionColor.color[1] + ', ' + transitionColor.color[2] + ')';
@@ -80,7 +80,7 @@ function App() {
             }
         };
 
-        //Set handler of motion detector update.
+        //Set handler of a motion detector update.
         md.onUpdate = function(ctx){
             ctx.fillStyle = 'rgba(180, 180, 180, 0.1)';
             ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -144,6 +144,6 @@ function App() {
         animate();
     };
 
-    //calling local constructor
+    //calling the local constructor
     constructor();
 }

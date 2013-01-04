@@ -1,6 +1,10 @@
-/**
- * MotionDetector.js
- * By VodkaBears
+/*!
+ * MotionDetector.js v1.0
+ * https://github.com/VodkaBears/motiondetector.js
+ *
+ * By VodkaBears(https://github.com/VodkaBears)
+ *
+ * Released under the MIT license
 */
 
 /**

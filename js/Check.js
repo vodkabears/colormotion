@@ -1,5 +1,5 @@
 /**
- * Features ckecker in the browser. Instead of modernizr.
+ * Features ckecker in the browser. Instead of the modernizr.
  */
 var Check = {
     getUserMedia: function(){
