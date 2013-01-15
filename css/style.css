@@ -44,16 +44,12 @@ a:hover{
 /*Canvas background(begin)*/
 .canvas_bg{
     position: absolute;
+    z-index: 1;
 
     width: 100%;
     height: 100%;
 
     background: #b4b4b4;
-    -webkit-filter: blur(10px);
-    -moz-filter: blur(10px);
-    -ms-filter: blur(10px);
-    -o-filter: blur(10px);
-    filter: blur(10px);
 }
 /*Canvas background(end)*/
 
@@ -61,6 +57,7 @@ a:hover{
 .central{
     position: absolute;
     top: 30%;
+    z-index: 100;
 
     width: 100%;
 }
@@ -73,11 +70,6 @@ a:hover{
 
     margin: 0 0 0.1em 0;
 
-    -webkit-filter: blur(3px);
-    -moz-filter: blur(3px);
-    -ms-filter: blur(3px);
-    -o-filter: blur(3px);
-    filter: blur(3px);
     color: #ff0000;
 }
 
@@ -162,7 +154,8 @@ a:hover{
 .social{
     position: absolute;
     bottom: 1.3em;
-    right: 1.8em;	
+    right: 1.8em;
+    z-index: 1000;
 }
 
     .social-button{

@@ -9,9 +9,7 @@ var addthis_share = {
 
 var init = function(){
     if( Check.canvas()&&
-        Check.filter() &&
-        Check.getUserMedia() &&
-        Check.browser()){
+        Check.getUserMedia()){
         new App();
     } else {
         document.getElementById('notSupportedSection').style.display = 'block';

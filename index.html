@@ -2,20 +2,19 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="HTML5 experiment"/>
     <title>Colormotion</title>
     <link href='http://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="css/media-queries.css"/>
     <link rel="image_src" href="i/soc_img.png" />
-    <script type="text/javascript" src="js/html5shiv.js" charset="utf-8"></script>
-    <script type="text/javascript" src="js/MotionDetector.js" charset="utf-8"></script>
-    <script type="text/javascript" src="js/Check.js" charset="utf-8"></script>
-    <script type="text/javascript" src="js/App.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/html5shiv.js"></script>
+    <script type="text/javascript" src="js/MotionDetector.js"></script>
+    <script type="text/javascript" src="js/Check.js"></script>
+    <script type="text/javascript" src="js/StackBlur.js"></script>
+    <script type="text/javascript" src="js/App.js"></script>
     <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5061e6bb0b77747d"></script>
-    <script type="text/javascript" src="js/init.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/init.js"></script>
 </head>
 <body>
 <a title="How about to fork?" target="_blank" href="https://github.com/VodkaBears/colormotion">
@@ -23,7 +22,7 @@
          alt="Fork me on GitHub">
 </a>
 
-<video class="webcam" id="webcam" width="800" height="600" autoplay></video>
+<video class="webcam" id="webcam" width="480" height="360" autoplay></video>
 <canvas class="canvas_bg" id="blended"></canvas>
 
 <div class="central">

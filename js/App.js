@@ -74,7 +74,7 @@ function App() {
             if(Math.random() > 0.96){
                 ctx.fillStyle = 'rgb(' + transitionColor.color[0] + ', ' + transitionColor.color[1] + ', ' + transitionColor.color[2] + ')';
                 ctx.beginPath();
-                ctx.arc(e.x, e.y, 15 * Math.random(), 0, 2 * Math.PI, false);
+                ctx.arc(e.x, e.y, 13 * Math.random(), 0, 2 * Math.PI, false);
                 ctx.closePath();
                 ctx.fill();
             }
@@ -96,8 +96,10 @@ function App() {
     var animate = function () {
         if(isStarted){
             md.update();
+            stackBlurCanvasRGB(outputCtx, 0, 0, output.width, output.height, 3);
         } else {
             appTitle.style.color = 'rgb(' + transitionColor.color[0] + ', ' + transitionColor.color[1] + ', ' + transitionColor.color[2] + ')';
+            appTitle.style.textShadow = '0 0 3em ' + appTitle.style.color;
             transitionColor.transition();
         }
 
