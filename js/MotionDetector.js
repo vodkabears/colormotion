@@ -1,5 +1,5 @@
 /*!
- * MotionDetector.js v1.1
+ * MotionDetector.js v1.0
  * https://github.com/VodkaBears/motiondetector.js
  *
  * By VodkaBears(https://github.com/VodkaBears)
@@ -175,11 +175,6 @@ function MotionDetector(video, output) {
 
         contextSource.translate(canvasSource.width, 0);
         contextSource.scale(-1, 1);
-
-        //some delay to avoid errors in some browsers
-        setTimeout(function () {
-            isReady = true;
-        }, 500);
     };
 
     //public
@@ -190,17 +185,15 @@ function MotionDetector(video, output) {
      * @public
      */
     self.update = function () {
-        if (isReady) {
-            contextSource.drawImage(video, 0, 0, video.width, video.height);
-            if (contextBlended) {
-                if (!self.onUpdate) {
-                    contextBlended.clearRect(0, 0, canvasBlended.width, canvasBlended.height);
-                } else {
-                    self.onUpdate(contextBlended);
-                }
+        contextSource.drawImage(video, 0, 0, video.width, video.height);
+        if (contextBlended) {
+            if (!self.onUpdate) {
+                contextBlended.clearRect(0, 0, canvasBlended.width, canvasBlended.height);
+            } else {
+                self.onUpdate(contextBlended);
             }
-            blend();
         }
+        blend();
     };
 
     /**

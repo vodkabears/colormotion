@@ -87,7 +87,10 @@ function App() {
             transitionColor.transition();
         };
 
-        isStarted = true;
+        //3sec delay - FF fix
+        setTimeout(function () {
+            isStarted = true;
+        }, 3000);
     };
 
     /**
@@ -128,9 +131,7 @@ function App() {
                 } else {
                     video.src = window.URL.createObjectURL(stream);
                 }
-                video.onloadedmetadata = function () {
-                    mdInit();
-                }
+                mdInit();
             }, function () {
                 webcamUnreadySection.style.display = 'block';
             });
