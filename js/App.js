@@ -128,7 +128,9 @@ function App() {
                 } else {
                     video.src = window.URL.createObjectURL(stream);
                 }
-                mdInit();
+                video.onloadedmetadata = function () {
+                    mdInit();
+                }
             }, function () {
                 webcamUnreadySection.style.display = 'block';
             });
