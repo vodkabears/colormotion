@@ -1,11 +1,11 @@
 /*!
- * MotionDetector.js v1.0
+ * MotionDetector.js v1.1
  * https://github.com/VodkaBears/motiondetector.js
  *
  * By VodkaBears(https://github.com/VodkaBears)
  *
  * Released under the MIT license
-*/
+ */
 
 /**
  * @constructor
@@ -20,16 +20,17 @@ function MotionDetector(video, output) {
         canvasSource, canvasBlended,
         contextSource, contextBlended,
         blended, coloredBlended,
-        width, height;
+        width, height,
+        isReady = false;
 
     var color = {
-        difference:{
+        difference: {
             r: 255,
             g: 255,
             b: 255,
             a: 255
         },
-        similarity:{
+        similarity: {
             r: 0,
             g: 0,
             b: 0,
@@ -54,7 +55,7 @@ function MotionDetector(video, output) {
      * @param {Number} value
      * @return {Number}
      */
-    var round = function(value){
+    var round = function (value) {
         return (0.5 + value) << 0;
     };
 
@@ -80,16 +81,16 @@ function MotionDetector(video, output) {
             target[4 * i + 2] = diff;
             target[4 * i + 3] = 0xFF;
 
-            if(contextBlended){
+            if (contextBlended) {
                 var colored = coloredBlended.data;
 
-                if(diff === 0xFF){
+                if (diff === 0xFF) {
                     colored[4 * i] = color.difference.r;
                     colored[4 * i + 1] = color.difference.g;
                     colored[4 * i + 2] = color.difference.b;
                     colored[4 * i + 3] = color.difference.a;
 
-                    if(self.onDifference){
+                    if (self.onDifference) {
                         e = {};
                         e.i = i;
                         e.y = ~~(i / width);
@@ -102,7 +103,7 @@ function MotionDetector(video, output) {
                     colored[4 * i + 2] = color.similarity.b;
                     colored[4 * i + 3] = color.similarity.a;
 
-                    if(self.onSimilarity){
+                    if (self.onSimilarity) {
                         e = {};
                         e.i = i;
                         e.y = ~~(i / width);
@@ -125,13 +126,13 @@ function MotionDetector(video, output) {
             lastImageData = contextSource.getImageData(0, 0, width, height);
         }
         blended = contextSource.createImageData(width, height);
-        if(contextBlended){
+        if (contextBlended) {
             coloredBlended = contextBlended.createImageData(width, height);
         }
 
         difference();
 
-        if(contextBlended && !(self.onDifference || self.onSimilarity)){
+        if (contextBlended && !(self.onDifference || self.onSimilarity)) {
             contextBlended.putImageData(coloredBlended, 0, 0);
         }
 
@@ -174,6 +175,11 @@ function MotionDetector(video, output) {
 
         contextSource.translate(canvasSource.width, 0);
         contextSource.scale(-1, 1);
+
+        //some delay to avoid errors in some browsers
+        setTimeout(function () {
+            isReady = true;
+        }, 500);
     };
 
     //public
@@ -184,15 +190,17 @@ function MotionDetector(video, output) {
      * @public
      */
     self.update = function () {
-        contextSource.drawImage(video, 0, 0, video.width, video.height);
-        if(contextBlended){
-            if(!self.onUpdate){
-                contextBlended.clearRect(0, 0, canvasBlended.width, canvasBlended.height);
-            } else {
-                self.onUpdate(contextBlended);
+        if (isReady) {
+            contextSource.drawImage(video, 0, 0, video.width, video.height);
+            if (contextBlended) {
+                if (!self.onUpdate) {
+                    contextBlended.clearRect(0, 0, canvasBlended.width, canvasBlended.height);
+                } else {
+                    self.onUpdate(contextBlended);
+                }
             }
+            blend();
         }
-        blend();
     };
 
     /**
@@ -216,7 +224,7 @@ function MotionDetector(video, output) {
      * @param {Number} step - step of checking. Default is 1.
      * @return {Number} Average
      */
-    self.getMotionAverage = function(x, y, w, h, step){
+    self.getMotionAverage = function (x, y, w, h, step) {
         var average = 0;
         var blendedData = blended.data;
         step = step || 1;
@@ -253,7 +261,7 @@ function MotionDetector(video, output) {
      * @param {Object} differenceRGBA - r,g,b,a values for difference
      * @param {Object} similarityRGBA - r,g,b,a values for similarity
      */
-    self.setColor = function(differenceRGBA, similarityRGBA){
+    self.setColor = function (differenceRGBA, similarityRGBA) {
         color.difference.r = differenceRGBA.r;
         color.difference.g = differenceRGBA.g;
         color.difference.b = differenceRGBA.b;

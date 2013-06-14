@@ -34,7 +34,7 @@ function App() {
             window.mozRequestAnimationFrame ||
             window.oRequestAnimationFrame ||
             window.msRequestAnimationFrame ||
-            function (callback){
+            function (callback) {
                 window.setTimeout(callback, 1000 / 60);
             };
     })();
@@ -48,10 +48,10 @@ function App() {
         color: [255, 0, 0],
         current: 0,
         next: 1,
-        transition: function(){
-            if(this.color[this.current] <= 0){
+        transition: function () {
+            if (this.color[this.current] <= 0) {
                 this.current = this.next++;
-                if(this.current === 2){
+                if (this.current === 2) {
                     this.next = 0;
                 }
             }
@@ -65,13 +65,13 @@ function App() {
      *
      * @private
      */
-    var mdInit = function(){
+    var mdInit = function () {
         //create new MotionDetector object
         md = new MotionDetector(video, output);
 
         //Set handler of a difference in a pixel.
-        md.onDifference = function(ctx, e){
-            if(Math.random() > 0.96){
+        md.onDifference = function (ctx, e) {
+            if (Math.random() > 0.96) {
                 ctx.fillStyle = 'rgb(' + transitionColor.color[0] + ', ' + transitionColor.color[1] + ', ' + transitionColor.color[2] + ')';
                 ctx.beginPath();
                 ctx.arc(e.x, e.y, 13 * Math.random(), 0, 2 * Math.PI, false);
@@ -81,11 +81,13 @@ function App() {
         };
 
         //Set handler of a motion detector update.
-        md.onUpdate = function(ctx){
+        md.onUpdate = function (ctx) {
             ctx.fillStyle = 'rgba(180, 180, 180, 0.1)';
             ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
             transitionColor.transition();
         };
+
+        isStarted = true;
     };
 
     /**
@@ -94,7 +96,7 @@ function App() {
      * @private
      */
     var animate = function () {
-        if(isStarted){
+        if (isStarted) {
             md.update();
             stackBlurCanvasRGB(outputCtx, 0, 0, output.width, output.height, 3);
         } else {
@@ -111,27 +113,25 @@ function App() {
      *
      * @private
      */
-    var createEventListeners = function(){
-        startButton.addEventListener('click', function(){
+    var createEventListeners = function () {
+        startButton.addEventListener('click', function () {
             startSection.style.display = 'none';
 
-            if (navigator.getUserMedia) {
-                navigator.getUserMedia({video: true}, function (stream) {
+            navigator.getMedia = (navigator.getUserMedia ||
+                navigator.webkitGetUserMedia ||
+                navigator.mozGetUserMedia ||
+                navigator.msGetUserMedia);
+
+            navigator.getMedia({ video: true }, function (stream) {
+                if (!window.URL) {
                     video.src = stream;
-                    mdInit();
-                    isStarted = true;
-                }, function () {
-                    webcamUnreadySection.style.display = 'block';
-                });
-            } else if (navigator.webkitGetUserMedia) {
-                navigator.webkitGetUserMedia({video: true}, function (stream) {
-                    video.src = window.webkitURL.createObjectURL(stream);
-                    mdInit();
-                    isStarted = true;
-                }, function () {
-                    webcamUnreadySection.style.display = 'block';
-                });
-            }
+                } else {
+                    video.src = window.URL.createObjectURL(stream);
+                }
+                mdInit();
+            }, function () {
+                webcamUnreadySection.style.display = 'block';
+            });
         });
     };
 
